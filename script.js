@@ -1,3 +1,9 @@
+const comScore = document.querySelector('.comScore')
+const comChoice = document.querySelector('.comChoice')
+const urScore = document.querySelector('.urScore')
+const urChoice = document.querySelector('.urChoice')
+const winner = document.querySelector('.announcement')
+
 function getComputerChoice() {
     choice = Math.floor(Math.random() * 3) + 1;
     if (choice === 1) {
@@ -17,89 +23,57 @@ function playRound(playerSelect = prompt("Rock Paper Scissors?")){
     const computerSelection = getComputerChoice();
 
     if(playerSelect === computerSelection){
-        console.log("Draw")
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "draw"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent = "Draw";
+        return "draw";
     } else if (playerSelect === "Paper" && computerSelection === "Scissors"){
-        console.log("Computer Wins")
-        console.log(`You lose ${computerSelection} beats ${playerSelect}`)
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "PlayerWin"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent =`You lose ${computerSelection} beats ${playerSelect}`;
+        urScore.textContent = Number(urScore.textContent) + 1;
+        return "PlayerWin";
     } else if ( playerSelect === "Paper" && computerSelection === "Rock"){
-        console.log("Player Win")
-        console.log(`You win ${playerSelect} beats ${computerSelection}`)
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "PlayerWin"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent =`You win ${playerSelect} beats ${computerSelection}`;
+        urScore.textContent = Number(urScore.textContent) + 1;
+        return "PlayerWin";
     }  else if ( playerSelect === "Scissors" && computerSelection === "Paper"){
-        console.log("Player Win")
-        console.log(`You win ${playerSelect} beats ${computerSelection}`)
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "PlayerWin"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent =`You win ${playerSelect} beats ${computerSelection}`;
+        urScore.textContent = Number(urScore.textContent) + 1;
+        return "PlayerWin";
     } else if ( playerSelect === "Scissors" && computerSelection === "Rock"){
-        console.log("Computer Win")
-        console.log(`You lose ${computerSelection} beats ${playerSelect}`)
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "ComputerWin"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent = `You lose ${computerSelection} beats ${playerSelect}`;
+        comScore.textContent = Number(comScore.textContent) + 1;
+        return "ComputerWin";
     } else if ( playerSelect === "Rock" && computerSelection === "Paper"){
-        console.log("Computer Win")
-        console.log(`You lose ${computerSelection} beats ${playerSelect}`)
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "ComputerWin"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent = `You lose ${computerSelection} beats ${playerSelect}`;
+        comScore.textContent =Number(comScore.textContent) + 1;
+        return "ComputerWin";
     } else if ( playerSelect === "Rock" && computerSelection === "Scissors"){
-        console.log("Player Win")
-        console.log(`You win ${playerSelect} beats ${computerSelection}`)
-        // console.log(playerSelect);
-        // console.log(computerSelection);
-        return "ComputerWin"
+        comChoice.textContent = `${computerSelection}`;
+        winner.textContent =`You win ${playerSelect} beats ${computerSelection}`;
+        comScore.textContent = Number(comScore.textContent) + 1;
+        return "ComputerWin";
 }
 
 }
 
+const rock = document.querySelector('.rock')
+const paper = document.querySelector('.paper')
+const scissors = document.querySelector('.scissors')
 
-function game() {
-    for (i = 0; i < 5; i++) {
-        playRound()
-        
-        let playerScore = 0;
-        let computerScore = 0;
+rock.addEventListener('click', () => {
+    urChoice.textContent = "Rock"
+  playRound("Rock")
+});
+paper.addEventListener('click', () => {
+    urChoice.textContent = "Paper"
+  playRound("Paper")
+});
+scissors.addEventListener('click', () => {
+    urChoice.textContent = "Scissors"
+  playRound("Scissors")
+});
 
-        if(playRound === "PlayerWin"){
-            playerScore += 1
-        } else if (playRound === "ComputerWin"){
-            computerScore += 1
-        } else if (playRound === "draw"){
-            playerScore += 1 
-            computerScore += 1
-        }
-        console.log(playerScore)
-    console.log(computerScore)
-    }
-    
-
-
-}
-        
-    
-
-
-
-
-
-// const computerSelection = "Paper"
-
-// function playRound(playerSelection) {
-
-//     if (playerSelection === "Rock" && computerSelection === "Paper" ){
-//         console.log("You lose! Paper beats Rock")
-//     }
-//   }
-   
-
-
-// //   console.log(playRound(playerSelection, computerSelection));

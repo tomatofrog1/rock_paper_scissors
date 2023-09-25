@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.players {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#vs {
+    display: flex;
+    align-self: center;
+}
+
